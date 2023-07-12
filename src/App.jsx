@@ -1,31 +1,25 @@
-
-
-import {useState} from 'react'
+import { useState } from 'react'
 import LoggedOut from './components/LoggedOut'
 import LoggedIn from './components/LoggedIn'
 
-
 function App() {
-
-  // Hook up the functionality for the LoggedIn component to show when the loggedIn state is true
-  // and the LoggedOut component to show when loggedIn state is false.
-
-  // See instruction ins toggleLogIn function
-
+  // initialize the 'loggedIn' state as bool true, 'setLoggedIn' to change it
   const [loggedIn, setLoggedIn] = useState(true)
 
+  // toggleLogIn function (will not be invoked until the Button's onClick)
   const toggleLogIn = () => {
-    // should change the state of loggedIn to whatever it's opposite is. 
-    // Remember to pass this prop down to the button component, and hook it up there.
+    // setLoggedIn changes the loggedIn state to its opposite
+    setLoggedIn(!loggedIn);
   }
 
-  if(loggedIn) {
-    return <LoggedIn />
+  // if loggedIn = true, return the LoggedIn component
+  if (loggedIn) {
+    // Button will need the toggleLogIn function, so pass it down as a prop
+    return <LoggedIn toggleLogIn={toggleLogIn} />
   }
 
-  return <LoggedOut />
-
-
+  // ditto
+  return <LoggedOut toggleLogIn={toggleLogIn} />
 }
 
 export default App

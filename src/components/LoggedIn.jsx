@@ -1,17 +1,15 @@
-
-
-
-
 import React from 'react'
 import Button from './Button'
 
-const LoggedIn = () => {
-
-
+// LoggedIn must take in props in order to accept the toggleLogIn function
+const LoggedIn = (props) => {
+    // destruct toggleLogIn off of props
+    const { toggleLogIn } = props;
     return (
         <>
             <h1>Logged in</h1>
-            <Button />
+            {/*Pass in the toggleLogIn function to the Button component as a prop*/}
+            <Button toggleLogIn={toggleLogIn} />
         </>
     )
 }

@@ -1,16 +1,15 @@
-
-
-
-const Button = () => {
-
+// Button will now take in props
+const Button = (props) => {
+    // destruct toggleLogIn off of props
+    const { toggleLogIn } = props;
+    // the Button's handleClick is an anonymous function that runs with the onClick event
     const handleClick = () => {
-        // run the toggleLogIn Prop function that hs been passed down from App.jsx
+        // the only time toggleLogIn is invoked -- during the handleClick() function
+        toggleLogIn();
     }
-
     return (
-        
-        <h1>create a button and add handleClick callback </h1>
-        
+        // add the handleClick anonymous function as the callback for the Button's onClick
+        <button onClick={handleClick}>Click me!</button>
     )
 }
 
